@@ -9,6 +9,7 @@ from pydantic import BaseModel
 from llm import ask_llm,ask_llm_stream
 from fastapi.responses import StreamingResponse
 from ingest import ingest_document
+from llm import answer_from_documents
 
 app = FastAPI()
 
@@ -70,8 +71,6 @@ async def ask_stream(request: AskRequest):
         media_type="text/plain"
         )
 
-
-from llm import answer_from_documents
 
 @app.post("/ask-document")
 async def ask_document(request: AskRequest):

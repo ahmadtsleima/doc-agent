@@ -10,7 +10,7 @@ client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 async def search_chunks(question: str, top_k: int = 3):
     # 1. embed the question — SAME model, same space as the chunks
-    result = client.models.embed_content(
+    result = client.aio.models.embed_content(
         model="gemini-embedding-001",
         contents=question
     )

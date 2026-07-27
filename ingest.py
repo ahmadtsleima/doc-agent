@@ -20,7 +20,7 @@ async def ingest_document(document_id:int, pdf_path:str):
 
     async with SessionLocal() as session:
         for i, chunk_content in enumerate(chunks):
-            result = client.models.embed_content(
+            result = client.aio.models.embed_content(
                 model="gemini-embedding-001",
                 contents=chunk_content
             )
